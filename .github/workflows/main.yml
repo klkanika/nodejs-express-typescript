@@ -14,5 +14,5 @@ jobs:
         username: ${{ secrets.USERNAME }}
         port: ${{ secrets.PORT }}
         key: ${{ secrets.KEY }}
-        source: "tests/a.txt,tests/b.txt"
-        target: "test"
+        source: "test.txt"
+        target: "/home/kannika/heloo"
