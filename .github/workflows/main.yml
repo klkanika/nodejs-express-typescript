@@ -16,15 +16,16 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         key: ${{ secrets.KEY }}
         source: "./packages/api"
-        target: "/home/kannika/api"
-    # - name: executing remote ssh commands using password
-    #   uses: appleboy/ssh-action@master
-    #   with:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     port: ${{ secrets.PORT }}
-    #     script: |
-    #       npm install
-    #       npm run bootstrap
-    #       npm run build
+        target: "/home/kannika"
+    - name: Docker compose
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ inputs.HOST }}
+        username: ${{ inputs.USERNAME }}
+        key: ${{ inputs.KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd "/home/kannika/packages/api"
+          echo Run Docker Compose
+          docker-compose up -d
+          ls -la

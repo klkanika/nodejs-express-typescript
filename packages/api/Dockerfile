@@ -1,7 +1,7 @@
 FROM node:16-alpine
 
 # Create app directory
-WORKDIR /usr/src/move-api
+WORKDIR /usr/src/test-api
 
 # Bundle app source
 COPY . .
