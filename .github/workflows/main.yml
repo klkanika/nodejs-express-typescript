@@ -28,5 +28,7 @@ jobs:
         script: |
           cd "/home/kannika/packages/api"
           echo Run Docker Compose
-          docker-compose up -d
+          docker-compose up -d --force-recreate --build
+          docker image prune  --force
+          docker builder prune --all --force
           ls -la
